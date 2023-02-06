@@ -9,6 +9,7 @@ const storage = multer.diskStorage({
     console.log(file)
     cb(null, "public");
   },
+  
   filename: function (req, file, cb) {
     console.log(file)
     cb(null, file.originalname);

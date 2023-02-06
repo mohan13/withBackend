@@ -6,17 +6,16 @@ router.get("/", ImagesController.getImages);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log(file)
     cb(null, "public");
   },
   filename: function (req, file, cb) {
-    console.log(file)
+    console.log("first");
     cb(null, file.originalname);
   },
 });
 
 const upload = multer({ storage: storage });
-
-router.post("/", upload.single("image"), ImagesController.ImagesPost);
+//dherai image store garna
+router.post("/", upload.array("image", 15), ImagesController.ImagesPost);
 
 module.exports = router;

@@ -11,11 +11,17 @@ module.exports.getImages = async (req, res) => {
   }
 };
 module.exports.ImagesPost = async (req, res) => {
-  console.log(req.body, req.file, req.files);
   try {
+    let image = [];
+    req.files.map((val, i) => {
+      let data = { path: val.path };
+      image.push(data);
+    });
+    console.log(image);
     const data = new ImagesModel({
-      image: req.file.path,
       title: req.body.title,
+      img1: req.file.path,
+      image: image,
     });
     await data.save();
     res.status(200).json({

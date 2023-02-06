@@ -1,21 +1,23 @@
 const express = require("express");
-const TestimonialsController = require("../controller/testimonials");
-const multer = require("multer");
+const AnotherFormController = require("../controller/anotherForm");
 let router = express.Router();
-
-router.get("/", TestimonialsController.getTestimonials);
+const multer = require("multer");
+router.get("/", AnotherFormController.getAnotherForm);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
+    console.log(file);
     cb(null, "public");
   },
+
   filename: function (req, file, cb) {
+    console.log(file);
     cb(null, file.originalname);
   },
 });
 
 const upload = multer({ storage: storage });
 
-router.post("/", upload.single("image"), TestimonialsController.TestimonialsPost);
+router.post("/", upload.single("image"), AnotherFormController.AnotherFormPost);
 
 module.exports = router;

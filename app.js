@@ -34,49 +34,43 @@ const swaggerDocs = swaggerJsdoc(swaggerOption);
 app.use("/doc", swaggerUiExpress.serve, swaggerUiExpress.setup(swaggerDocs));
 
 // routes
-// for Home
 
 // service
-app.use("/service", (res, req) => {
-  res.status(200).json([
-    {
-      headline: "services",
-      price: "125$",
-      duration: "Day",
-      size: "30 ft",
-      capacity: "Max person 5",
-      Bed: "King Beds",
-      services: "Wifi,Television,Bathroom",
-    },
-    {
-      headline: "services",
-      price: "125$",
-      duration: "Day",
-      size: "30 ft",
-      capacity: "Max person 5",
-      Bed: "King Beds",
-      services: "Wifi,Television,Bathroom",
-    },
-    {
-      headline: "services",
-      price: "125$",
-      duration: "Day",
-      size: "30 ft",
-      capacity: "Max person 5",
-      Bed: "King Beds",
-      services: "Wifi,Television,Bathroom",
-    },
-  ]);
-});
+// app.use("/service", (res, req) => {
+//   res.status(200).json([
+//     {
+//       headline: "services",
+//       price: "125$",
+//       duration: "Day",
+//       size: "30 ft",
+//       capacity: "Max person 5",
+//       Bed: "King Beds",
+//       services: "Wifi,Television,Bathroom",
+//     },
+//     {
+//       headline: "services",
+//       price: "125$",
+//       duration: "Day",
+//       size: "30 ft",
+//       capacity: "Max person 5",
+//       Bed: "King Beds",
+//       services: "Wifi,Television,Bathroom",
+//     },
+//     {
+//       headline: "services",
+//       price: "125$",
+//       duration: "Day",
+//       size: "30 ft",
+//       capacity: "Max person 5",
+//       Bed: "King Beds",
+//       services: "Wifi,Television,Bathroom",
+//     },
+//   ]);
+// });
 
-// events
-app.use("/events", (req, res) => {
-  res.status(200).json([
-    {
-      headline: "Events",
-    },
-  ]);
-});
+//Home
+const Home = require("./routes/Home");
+app.use("/home", Home);
 
 // contact
 app.use("/contact", (req, res) => {
@@ -87,15 +81,13 @@ app.use("/contact", (req, res) => {
   ]);
 });
 
-//Home
-const HomeRo = require("./routes/Home");
-app.use("/HomeRoute", HomeRo);
-
 //about
 const about = require("./routes/About");
-app.use("/About", about);
+app.use("/about", about);
 
-//rooms
+// Rooms
+const room = require("./routes/rooms");
+app.use("/room", room);
 
 //Testimonials
 const testimonials = require("./routes/testimonials");
@@ -105,10 +97,19 @@ app.use("/testimonials", testimonials);
 const blogs = require("./routes/blogs");
 app.use("/blogs", blogs);
 
+// images
+const images = require("./routes/multiImagees");
+app.use("/images", images);
+
+// Another-Form
+const anotherForm = require("./routes/anotherFrom");
+app.use("/anotherForm", anotherForm);
+
 // server setUp
 // app.listen(4000);
 // console.log("Server is running at port" + process.env.PORT);
 // Mongodb connection
+
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 4000;
 mongoose

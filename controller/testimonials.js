@@ -15,12 +15,11 @@ module.exports.TestimonialsPost = async (req, res) => {
   console.log(req.body);
   try {
     const data = new TestimonialsModel({
-      id: req.body.ID,
-      banner: {
-        name: req.body.name,
-        post: req.body.title,
-        comments:req.body.comments,
-      },
+      name: req.body.name,
+      post: req.body.title,
+      image: req.body.image,
+      rating: req.body.rating,
+      comments: req.body.comments,
     });
     await data.save();
     res.status(200).json({

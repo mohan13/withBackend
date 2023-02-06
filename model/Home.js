@@ -5,7 +5,6 @@ const HomeSchema = mongoose.Schema({
     headline: String,
     image: String,
     title: String,
-    description: String,
   },
 });
 

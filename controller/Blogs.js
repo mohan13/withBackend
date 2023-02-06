@@ -14,10 +14,9 @@ module.exports.BlogsPost = async (req, res) => {
   console.log(req.body, req.file, req.files);
   try {
     const data = new BlogsModel({
+      time: req.body.time,
       title: req.body.title,
       image: req.file.image,
-      SubTitle: req.body.SubTitle,
-      time: req.body.time,
       description: req.body.description,
     });
     await data.save();

@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
-const HomeModal = require('./Home');
+const mongoose = require("mongoose");
 const ImagesSchema = mongoose.Schema({
-    iamge:String
-})
-const ImagesModal = mongoose.Model("Images",ImagesSchema);
-module.exports = HomeModal;
+  title: String, 
+  image: Array,
+});
+
+const ImagesModal = mongoose.model("images", ImagesSchema);
+module.exports = ImagesModal;
