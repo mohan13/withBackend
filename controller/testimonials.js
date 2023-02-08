@@ -16,8 +16,8 @@ module.exports.TestimonialsPost = async (req, res) => {
   try {
     const data = new TestimonialsModel({
       name: req.body.name,
-      post: req.body.title,
-      image: req.body.image,
+      post: req.body.post,
+      image: req.body.path,
       rating: req.body.rating,
       comments: req.body.comments,
     });

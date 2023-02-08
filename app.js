@@ -102,8 +102,8 @@ const images = require("./routes/multiImagees");
 app.use("/images", images);
 
 // Another-Form
-const anotherForm = require("./routes/anotherFrom");
-app.use("/anotherForm", anotherForm);
+// const anotherForm = require("./routes/anotherFrom");
+// app.use("/anotherForm", anotherForm);
 
 // server setUp
 // app.listen(4000);
